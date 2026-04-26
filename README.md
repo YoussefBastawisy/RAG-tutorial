@@ -167,8 +167,39 @@ to measure:
 .
 ├── RAG_Pipeline_Tutorial.ipynb   # Complete implementation of the RAG pipeline
 ├── RAG Session.pptx              # Theory and architecture presentation
+├── cloudnest-support/            # End-to-end RAG + agent demo app (see below)
 └── README.md                     # Project documentation
 ```
+
+---
+
+## 🧪 Bonus Project: `cloudnest-support/`
+
+A full **end-to-end customer-support agent** that builds on the concepts from the
+notebook and takes them to a real, deployable application.
+
+It combines:
+
+* **RAG** over a markdown knowledge base (Chroma + `all-MiniLM-L6-v2`)
+* A **LangGraph ReAct agent** with two tools (`search_kb`, `create_ticket`)
+* A **Streamlit** chat UI, deployable to Streamlit Community Cloud in minutes
+
+```
+User → Streamlit chat UI
+         │
+         ▼
+   LangGraph ReAct Agent  (Llama-3.1-8b on Groq)
+         │           │
+         ▼           ▼
+   search_kb    create_ticket
+         │
+         ▼
+   Chroma + MiniLM embeddings
+```
+
+See [`cloudnest-support/README.md`](./cloudnest-support/README.md) for setup,
+deployment instructions, and a full workshop guide under
+[`cloudnest-support/docs/`](./cloudnest-support/docs).
 
 ---
 
